@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace = "com.ecervera.cocktails"
-    compileSdk = 32
+    compileSdk = 33
 
     defaultConfig {
         applicationId = "com.ecervera.cocktails"
         minSdk = 28
-        targetSdk = 32
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0.0"
 
@@ -53,7 +53,11 @@ android {
 }
 
 dependencies {
-// ANDROIDX
+
+    //
+    implementation(Libs.Accompanist.systemuicontroller)
+
+    // ANDROIDX
     implementation(Libs.AndroidX.appCompat)
     implementation(Libs.AndroidX.annotation)
     implementation(Libs.AndroidX.coreKtx)
