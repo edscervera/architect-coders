@@ -35,7 +35,7 @@ fun CocktailsView(onClick:(String) -> Unit) {
 
             Summary()
 
-            Spacer(modifier = Modifier.padding(CocktailsTheme.dimensions.medium2))
+            Spacer(modifier = Modifier.padding(CocktailsTheme.dimensions.small4))
 
             LazyColumn(
                 verticalArrangement = Arrangement.spacedBy(CocktailsTheme.dimensions.medium2),
