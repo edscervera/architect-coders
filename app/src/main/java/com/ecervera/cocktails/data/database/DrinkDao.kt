@@ -1,20 +1,20 @@
-package com.devexperto.architectcoders.data.database
+package com.ecervera.cocktails.data.database
 
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface MovieDao {
+interface DrinkDao {
 
-    @Query("SELECT * FROM Movie")
-    fun getAll(): Flow<List<Movie>>
+    @Query("SELECT * FROM Drink")
+    fun getAll(): Flow<List<Drink>>
 
-    @Query("SELECT * FROM Movie WHERE id = :id")
-    fun findById(id: Int): Flow<Movie>
+    @Query("SELECT * FROM Drink WHERE idDrink = :id")
+    fun findById(id: String): Flow<Drink>
 
-    @Query("SELECT COUNT(id) FROM Movie")
-    suspend fun movieCount(): Int
+    @Query("SELECT COUNT(idDrink) FROM Drink")
+    suspend fun drinkCount(): Int
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertMovies(movies: List<Movie>)
+    suspend fun insertDrinks(movies: List<Drink>)
 }

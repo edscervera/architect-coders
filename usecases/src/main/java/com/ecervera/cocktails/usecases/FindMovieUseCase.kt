@@ -1,11 +1,11 @@
-package com.devexperto.architectcoders.usecases
+package com.ecervera.cocktails.usecases
 
-import com.devexperto.architectcoders.data.MoviesRepository
-import com.devexperto.architectcoders.domain.Movie
+import com.ecervera.cocktails.data.DrinksRepository
+import com.ecervera.cocktails.domain.Drink
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class FindMovieUseCase @Inject constructor(private val repository: MoviesRepository) {
+class FindDrinkUseCase @Inject constructor(private val repository: DrinksRepository) {
 
-    operator fun invoke(id: Int): Flow<Movie> = repository.findById(id)
+    operator fun invoke(id: String): Flow<Drink> = repository.findById(id)
 }

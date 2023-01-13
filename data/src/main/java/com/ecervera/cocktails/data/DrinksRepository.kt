@@ -1,33 +1,32 @@
-package com.devexperto.architectcoders.data
+package com.ecervera.cocktails.data
 
-import com.devexperto.architectcoders.data.datasource.MovieLocalDataSource
-import com.devexperto.architectcoders.data.datasource.MovieRemoteDataSource
-import com.devexperto.architectcoders.domain.Error
-import com.devexperto.architectcoders.domain.Movie
+import com.ecervera.cocktails.data.datasource.DrinkLocalDataSource
+import com.ecervera.cocktails.data.datasource.DrinkRemoteDataSource
+import com.ecervera.cocktails.domain.Drink
+import com.ecervera.cocktails.domain.Error
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class MoviesRepository @Inject constructor(
-    private val regionRepository: RegionRepository,
-    private val localDataSource: MovieLocalDataSource,
-    private val remoteDataSource: MovieRemoteDataSource
+class DrinksRepository @Inject constructor(
+    private val localDataSource: DrinkLocalDataSource,
+    private val remoteDataSource: DrinkRemoteDataSource
 ) {
-    val popularMovies get() = localDataSource.movies
+    val latestDrinks get() = localDataSource.drinks
 
-    fun findById(id: Int): Flow<Movie> = localDataSource.findById(id)
+    fun findById(id: String): Flow<Drink> = localDataSource.findById(id)
 
-    suspend fun requestPopularMovies(): Error? {
+    suspend fun requestLatestDrinks(): Error? {
         if (localDataSource.isEmpty()) {
-            val movies = remoteDataSource.findPopularMovies(regionRepository.findLastRegion())
-            movies.fold(ifLeft = { return it }) {
+            val drinks = remoteDataSource.findLatestDrinks()
+            drinks.fold(ifLeft = { return it }) {
                 localDataSource.save(it)
             }
         }
         return null
     }
 
-    suspend fun switchFavorite(movie: Movie): Error? {
-        val updatedMovie = movie.copy(favorite = !movie.favorite)
-        return localDataSource.save(listOf(updatedMovie))
+    suspend fun switchFavorite(drink: Drink): Error? {
+        val updatedDrink = drink.copy(isFavorite = !drink.isFavorite)
+        return localDataSource.save(listOf(updatedDrink))
     }
 }

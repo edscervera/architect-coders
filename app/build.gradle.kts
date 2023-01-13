@@ -54,7 +54,7 @@ android {
 
 dependencies {
 
-    //
+    // ACCOMPANIST
     implementation(Libs.Accompanist.systemuicontroller)
 
     // ANDROIDX
@@ -109,6 +109,11 @@ dependencies {
     // OKHTTP 3
     implementation(Libs.OkHttp3.loginInterceptor)
     implementation(Libs.OkHttp3.urlConnection)
+
+    // PROJECTS
+    implementation(project(":data"))
+    implementation(project(":domain"))
+    implementation(project(":usecases"))
 
     // RETROFIT
     implementation(Libs.Retrofit.retrofit)

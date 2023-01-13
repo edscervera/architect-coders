@@ -1,13 +1,13 @@
-package com.devexperto.architectcoders.data.datasource
+package com.ecervera.cocktails.data.datasource
 
-import com.devexperto.architectcoders.domain.Error
-import com.devexperto.architectcoders.domain.Movie
+import com.ecervera.cocktails.domain.Drink
+import com.ecervera.cocktails.domain.Error
 import kotlinx.coroutines.flow.Flow
 
-interface MovieLocalDataSource {
-    val movies: Flow<List<Movie>>
+interface DrinkLocalDataSource {
+    val drinks: Flow<List<Drink>>
 
     suspend fun isEmpty(): Boolean
-    fun findById(id: Int): Flow<Movie>
-    suspend fun save(movies: List<Movie>): Error?
+    fun findById(id: String): Flow<Drink>
+    suspend fun save(drinks: List<Drink>): Error?
 }

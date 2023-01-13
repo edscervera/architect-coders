@@ -1,5 +1,10 @@
 package com.ecervera.cocktails.data.server
 
-data class RemoteDrinksResult(
-    val drinks: List<Drink>
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
+
+@JsonClass(generateAdapter = true)
+data class DrinksResult(
+    @Json(name = "drinks")
+    val drinks: List<RemoteDrink>
 )

@@ -16,7 +16,7 @@ class DrinkRoomDataSource @Inject constructor(private val drinkDao: DrinkDao) :
 
     override suspend fun isEmpty(): Boolean = drinkDao.drinkCount() == 0
 
-    override fun findById(id: Int): Flow<Drink> = drinkDao.findById(id).map { it.toDomainModel() }
+    override fun findById(id: String): Flow<Drink> = drinkDao.findById(id).map { it.toDomainModel() }
 
     override suspend fun save(drinks: List<Drink>): Error? = tryCall {
         drinkDao.insertDrinks(drinks.fromDomainModel())
@@ -31,16 +31,12 @@ private fun List<DbDrink>.toDomainModel(): List<Drink> = map { it.toDomainModel(
 private fun DbDrink.toDomainModel(): Drink =
     Drink(
         idDrink = idDrink,
-        dateModified = dateModified,
         alcoholic,
         category,
         creativeCommonsConfirmed,
         name = name,
-        drinkAlternate = drinkAlternate,
         drinkThumb = drinkThumb,
         glass = glass,
-        IBA = IBA,
-        imageAttribution = imageAttribution,
         imageSource = imageSource,
         ingredient1 = ingredient1,
         ingredient10 = ingredient10,
@@ -81,17 +77,13 @@ private fun DbDrink.toDomainModel(): Drink =
 private fun List<Drink>.fromDomainModel(): List<DbDrink> = map { it.fromDomainModel() }
 
 private fun Drink.fromDomainModel(): DbDrink = DbDrink(
-    idDrink,
-    dateModified,
+    idDrink = idDrink,
     alcoholic,
     category,
     creativeCommonsConfirmed,
     name,
-    drinkAlternate,
     drinkThumb = drinkThumb,
     glass = glass,
-    IBA = IBA,
-    imageAttribution = imageAttribution,
     imageSource = imageSource,
     ingredient1 = ingredient1,
     ingredient10 = ingredient10,

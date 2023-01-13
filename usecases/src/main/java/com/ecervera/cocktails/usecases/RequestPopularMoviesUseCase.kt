@@ -1,12 +1,12 @@
-package com.devexperto.architectcoders.usecases
+package com.ecervera.cocktails.usecases
 
-import com.devexperto.architectcoders.data.MoviesRepository
-import com.devexperto.architectcoders.domain.Error
+import com.ecervera.cocktails.data.DrinksRepository
+import com.ecervera.cocktails.domain.Error
 import javax.inject.Inject
 
-class RequestPopularMoviesUseCase @Inject constructor(private val moviesRepository: MoviesRepository) {
+class RequestLatestDrinksUseCase @Inject constructor(private val repository: DrinksRepository) {
 
     suspend operator fun invoke(): Error? {
-        return moviesRepository.requestPopularMovies()
+        return repository.requestLatestDrinks()
     }
 }

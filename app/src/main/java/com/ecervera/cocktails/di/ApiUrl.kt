@@ -1,4 +1,4 @@
-package com.devexperto.architectcoders.di
+package com.ecervera.cocktails.di
 
 import javax.inject.Qualifier
 

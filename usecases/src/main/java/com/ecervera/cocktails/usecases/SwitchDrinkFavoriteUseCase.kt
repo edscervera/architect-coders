@@ -1,10 +1,10 @@
-package com.devexperto.architectcoders.usecases
+package com.ecervera.cocktails.usecases
 
-import com.devexperto.architectcoders.data.MoviesRepository
-import com.devexperto.architectcoders.domain.Movie
+import com.ecervera.cocktails.data.DrinksRepository
+import com.ecervera.cocktails.domain.Drink
 import javax.inject.Inject
 
-class SwitchMovieFavoriteUseCase @Inject constructor(private val repository: MoviesRepository) {
+class SwitchDrinkFavoriteUseCase @Inject constructor(private val repository: DrinksRepository) {
 
-    suspend operator fun invoke(movie: Movie) = repository.switchFavorite(movie)
+    suspend operator fun invoke(drink: Drink) = repository.switchFavorite(drink)
 }

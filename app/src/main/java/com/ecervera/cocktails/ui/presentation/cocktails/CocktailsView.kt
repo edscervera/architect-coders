@@ -4,21 +4,54 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.ecervera.cocktails.ui.composables.CocktailsApp
 import com.ecervera.cocktails.ui.theme.CocktailsTheme
 import com.ecervera.cocktails.ui.presentation.cocktails.composables.CardCocktail
 import com.ecervera.cocktails.ui.presentation.cocktails.composables.Search
+import com.ecervera.cocktails.ui.presentation.cocktails.composables.Skeleton
 import com.ecervera.cocktails.ui.presentation.cocktails.composables.Summary
+import timber.log.Timber
 
 @Composable
-fun CocktailsView(onClick:(String) -> Unit) {
+fun CocktailsView(
+    viewModel: CocktailsViewModel = hiltViewModel(),
+    onClick:(String) -> Unit
+) {
+    val state = viewModel.state.collectAsState()
+
+    viewModel.onUiReady()
+
+
     CocktailsApp {
         Column(
             modifier = Modifier.padding(CocktailsTheme.dimensions.medium3),
         ) {
+            when(state.value.loading) {
+                true -> {
+                    Skeleton()
+                }
+                false -> {
+                    state.value.error?.let {
+                        Timber.e("Cannot retrieve drinks: $it")
+                    }
+                    state.value.drinks?.let { drinks ->
+
+                        if (drinks?.isEmpty() == true) {
+                            Text(text = "No drinks")
+                        } else {
+                            drinks.forEach { drink ->
+                                CardCocktail(onClick = onClick, id = drink.idDrink)
+                            }
+                        }
+                    }
+                }
+            }
+            
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -34,20 +67,6 @@ fun CocktailsView(onClick:(String) -> Unit) {
             Spacer(modifier = Modifier.padding(CocktailsTheme.dimensions.medium2))
 
             Summary()
-
-            Spacer(modifier = Modifier.padding(CocktailsTheme.dimensions.small4))
-
-            LazyColumn(
-                verticalArrangement = Arrangement.spacedBy(CocktailsTheme.dimensions.medium2),
-            ) {
-                item {
-                    CardCocktail(onClick, "1")
-                }
-
-                item {
-                    CardCocktail(onClick, "2")
-                }
-            }
         }
     }
 }

@@ -1,9 +1,9 @@
-package com.devexperto.architectcoders.data.datasource
+package com.ecervera.cocktails.data.datasource
 
 import arrow.core.Either
-import com.devexperto.architectcoders.domain.Error
-import com.devexperto.architectcoders.domain.Movie
+import com.ecervera.cocktails.domain.Drink
+import com.ecervera.cocktails.domain.Error
 
-interface MovieRemoteDataSource {
-    suspend fun findPopularMovies(region: String): Either<Error, List<Movie>>
+interface DrinkRemoteDataSource {
+    suspend fun findLatestDrinks(): Either<Error, List<Drink>>
 }

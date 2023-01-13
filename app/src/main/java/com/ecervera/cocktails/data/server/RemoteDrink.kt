@@ -4,107 +4,107 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class DrinkResult(
-    @Json(name = "dateModified")
-    val dateModified: Any,
+data class RemoteDrink(
     @Json(name = "idDrink")
     val idDrink: String,
+    @Json(name = "strDrink")
+    val name: String,
+    @Json(name = "dateModified")
+    val dateModified: String?,
     @Json(name = "strAlcoholic")
     val alcoholic: String,
     @Json(name = "strCategory")
     val category: String,
     @Json(name = "strCreativeCommonsConfirmed")
     val creativeCommonsConfirmed: String,
-    @Json(name = "strDrink")
-    val name: String,
     @Json(name = "strDrinkAlternate")
-    val drinkAlternate: Any,
+    val drinkAlternate: String?,
     @Json(name = "strDrinkThumb")
     val drinkThumb: String,
     @Json(name = "strGlass")
     val glass: String,
     @Json(name = "strIBA")
-    val IBA: Any,
+    val IBA: String?,
     @Json(name = "strImageAttribution")
-    val imageAttribution: Any,
+    val imageAttribution: String?,
     @Json(name = "strImageSource")
     val imageSource: String,
     @Json(name = "strIngredient1")
     val ingredient1: String,
-    @Json(name = "strIngredient10")
-    val ingredient10: Any,
-    @Json(name = "ingredient11")
-    val ingredient11: Any,
-    @Json(name = "strIngredient12")
-    val ingredient12: Any,
-    @Json(name = "strIngredient13")
-    val ingredient13: Any,
-    @Json(name = "strIngredient14")
-    val ingredient14: Any,
-    @Json(name = "strIngredient15")
-    val ingredient15: Any,
     @Json(name = "strIngredient2")
-    val ingredient2: String,
+    val ingredient2: String?,
     @Json(name = "strIngredient3")
-    val ingredient3: String,
+    val ingredient3: String?,
     @Json(name = "strIngredient4")
-    val ingredient4: String,
+    val ingredient4: String?,
     @Json(name = "strIngredient5")
-    val ingredient5: String,
+    val ingredient5: String?,
     @Json(name = "strIngredient6")
-    val ingredient6: String,
+    val ingredient6: String?,
     @Json(name = "strIngredient7")
-    val ingredient7: String,
+    val ingredient7: String?,
     @Json(name = "strIngredient8")
-    val ingredient8: Any,
-    @Json(name = "ingredient9")
-    val ingredient9: Any,
+    val ingredient8: String?,
+    @Json(name = "strIngredient9")
+    val ingredient9: String?,
+    @Json(name = "strIngredient10")
+    val ingredient10: String?,
+    @Json(name = "strIngredient11")
+    val ingredient11: String?,
+    @Json(name = "strIngredient12")
+    val ingredient12: String?,
+    @Json(name = "strIngredient13")
+    val ingredient13: String?,
+    @Json(name = "strIngredient14")
+    val ingredient14: String?,
+    @Json(name = "strIngredient15")
+    val ingredient15: String?,
     @Json(name = "strInstructions")
     val instructions: String,
-    @Json(name = "strInstructions")
-    val instructionsDE: String,
     @Json(name = "strInstructionsES")
-    val instructionsES: Any,
+    val instructionsES: String?,
+    @Json(name = "strInstructionsDE")
+    val instructionsDE: String?,
     @Json(name = "strInstructionsFR")
-    val instructionsFR: Any,
+    val instructionsFR: String?,
     @Json(name = "strInstructionsIT")
-    val instructionsIT: String,
+    val instructionsIT: String?,
     @Json(name = "strInstructionsZH-HANS")
-    val instructionsZH: Any,
+    val instructionsZH: String?,
     @Json(name = "strInstructionsZH-HANT")
-    val instructionsZHHant: Any,
+    val instructionsZHHant: String?,
     @Json(name = "strMeasure1")
     val measure1: String,
-    @Json(name = "strMeasure10")
-    val measure10: Any,
-    @Json(name = "strMeasure11")
-    val measure11: Any,
-    @Json(name = "strMeasure12")
-    val measure12: Any,
-    @Json(name = "strMeasure13")
-    val measure13: Any,
-    @Json(name = "strMeasure14")
-    val measure14: Any,
-    @Json(name = "strMeasure15")
-    val measure15: Any,
     @Json(name = "strMeasure2")
-    val measure2: String,
+    val measure2: String?,
     @Json(name = "strMeasure3")
-    val measure3: String,
+    val measure3: String?,
     @Json(name = "strMeasure4")
-    val measure4: String,
+    val measure4: String?,
     @Json(name = "strMeasure5")
-    val measure5: String,
+    val measure5: String?,
     @Json(name = "strMeasure6")
-    val measure6: String,
+    val measure6: String?,
     @Json(name = "strMeasure7")
-    val measure7: String,
+    val measure7: String?,
     @Json(name = "strMeasure8")
-    val measure8: Any,
+    val measure8: String?,
     @Json(name = "strMeasure9")
-    val measure9: Any,
+    val measure9: String?,
+    @Json(name = "strMeasure10")
+    val measure10: String?,
+    @Json(name = "strMeasure11")
+    val measure11: String?,
+    @Json(name = "strMeasure12")
+    val measure12: String?,
+    @Json(name = "strMeasure13")
+    val measure13: String?,
+    @Json(name = "strMeasure14")
+    val measure14: String?,
+    @Json(name = "strMeasure15")
+    val measure15: String?,
     @Json(name = "strTags")
-    val tags: String,
+    val tags: String?,
     @Json(name = "strVideo")
-    val video: Any
+    val video: String?
 )

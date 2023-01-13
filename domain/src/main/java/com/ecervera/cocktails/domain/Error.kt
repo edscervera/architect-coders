@@ -1,4 +1,4 @@
-package com.ecervera.domain
+package com.ecervera.cocktails.domain
 
 sealed interface Error {
     class Server(val code: Int) : Error

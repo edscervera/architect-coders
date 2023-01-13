@@ -1,6 +1,7 @@
 package com.ecervera.cocktails.ui.presentation.cocktails.composables
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -22,13 +23,11 @@ fun Summary() {
             containerColor =  CocktailsTheme.colors.lightPrimary,
         ),
         content = {
-            Column {
+            Column(modifier = Modifier.padding(CocktailsTheme.dimensions.medium3)) {
                 Text("\uD83C\uDF79 Total Drinks: 635",
-                    modifier = Modifier.padding(CocktailsTheme.dimensions.medium2),
                     style = MaterialTheme.typography.labelLarge)
+                Spacer(modifier = Modifier.padding(CocktailsTheme.dimensions.small4))
                 Text("\uD83C\uDF4B Total Ingredients: 489",
-                    modifier = Modifier.padding(
-                    CocktailsTheme.dimensions.medium2),
                     style = MaterialTheme.typography.labelLarge)
             }
         },
