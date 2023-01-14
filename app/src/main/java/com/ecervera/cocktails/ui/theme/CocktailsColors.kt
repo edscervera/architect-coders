@@ -19,7 +19,7 @@ class CocktailsColors(
     icon: Color,
     iconOnPrimary: Color,
     gray: Color,
-    switchBackground: Color,
+    iconBackground: Color,
     skeleton: Color,
     divider: Color,
     isLight: Boolean,
@@ -48,7 +48,7 @@ class CocktailsColors(
         private set
     var gray by mutableStateOf(gray)
         private set
-    var switchBackground by mutableStateOf(switchBackground)
+    var iconBackground by mutableStateOf(iconBackground)
         private set
     var skeleton by mutableStateOf(skeleton)
         private set
@@ -70,7 +70,7 @@ class CocktailsColors(
         icon: Color = this.icon,
         iconOnPrimary: Color = this.icon,
         gray: Color = this.gray,
-        switchBackground: Color = this.switchBackground,
+        iconBackground: Color = this.iconBackground,
         skeleton: Color = this.skeleton,
         divider: Color = this.divider,
         isLight: Boolean = this.isLight,
@@ -87,7 +87,7 @@ class CocktailsColors(
         icon,
         iconOnPrimary,
         gray,
-        switchBackground,
+        iconBackground,
         skeleton,
         divider,
         isLight
@@ -107,7 +107,7 @@ class CocktailsColors(
         iconOnPrimary = cocktailsColors.iconOnPrimary
         skeleton = cocktailsColors.skeleton
         gray = cocktailsColors.gray
-        switchBackground = cocktailsColors.switchBackground
+        iconBackground = cocktailsColors.iconBackground
         divider = cocktailsColors.divider
     }
 }
@@ -116,7 +116,7 @@ fun lightColors(
     primary: Color = Primary500,
     lightPrimary: Color = Primary100,
     background: Color = Gray200,
-    outline: Color = Gray200,
+    outline: Color = Gray300,
     error: Color = Error500,
     warning: Color = Warning500,
     success: Color = Success500,
@@ -125,7 +125,7 @@ fun lightColors(
     icon: Color = Gray500,
     iconOnPrimary: Color = Primary500,
     gray: Color = Gray400,
-    switchBackground: Color = Gray300,
+    iconBackground: Color = Gray100,
     skeleton: Color = Gray300,
     divider: Color = Gray200,
 ): CocktailsColors = CocktailsColors(
@@ -141,7 +141,7 @@ fun lightColors(
     icon = icon,
     iconOnPrimary = iconOnPrimary,
     gray = gray,
-    switchBackground = switchBackground,
+    iconBackground = iconBackground,
     skeleton = skeleton,
     divider = divider,
     isLight = true
@@ -160,7 +160,7 @@ fun darkColors(
     icon: Color = Gray400,
     iconOnPrimary: Color = Gray600,
     gray: Color = Gray400,
-    switchBackground: Color = Gray400,
+    iconBackground: Color = Gray400,
     skeleton: Color = Gray500,
     divider: Color = Gray600,
 ): CocktailsColors = CocktailsColors(
@@ -176,7 +176,7 @@ fun darkColors(
     icon = icon,
     iconOnPrimary = iconOnPrimary,
     gray = gray,
-    switchBackground = switchBackground,
+    iconBackground = iconBackground,
     skeleton = skeleton,
     divider = divider,
     isLight = false

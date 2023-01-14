@@ -1,4 +1,5 @@
-package com.ecervera.cocktails.ui.presentation.cocktails.composables
+package com.ecervera.cocktails.ui.composables
+
 import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
