@@ -9,7 +9,9 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.ecervera.cocktails.domain.Drink
+import com.ecervera.cocktails.ui.composables.ArrowBackIcon
 import com.ecervera.cocktails.ui.presentation.cocktail.composables.*
+import com.ecervera.cocktails.ui.theme.CocktailsTheme
 
 
 @Composable
@@ -31,11 +33,17 @@ fun CocktailView(
 
 @Composable
 fun ContentCocktailView(drink: Drink, onUpClick: () -> Unit) {
-    Column(modifier = Modifier
-        .fillMaxSize()
-        .verticalScroll(rememberScrollState())
-    ) {
-        CocktailHeader(painterSource = drink.painter, title = drink.name, onUpClick)
-        CocktailBody(drink)
+    Box {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
+        ) {
+            CocktailHeader(painterSource = drink.painter, title = drink.name)
+            CocktailBody(drink)
+        }
+        Box(modifier = Modifier.padding(CocktailsTheme.dimensions.medium3)) {
+            ArrowBackIcon(onUpClick)
+        }
     }
 }

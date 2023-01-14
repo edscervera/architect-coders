@@ -15,11 +15,10 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
-import com.ecervera.cocktails.ui.composables.ArrowBackIcon
 import com.ecervera.cocktails.ui.theme.CocktailsTheme
 
 @Composable
-fun CocktailHeader(painterSource: String, title: String, onUpClick: () -> Unit) {
+fun CocktailHeader(painterSource: String, title: String) {
     Box(
         modifier = Modifier.clip(
             shape = RoundedCornerShape(bottomStart = 32.dp, bottomEnd = 32.dp)
@@ -32,7 +31,6 @@ fun CocktailHeader(painterSource: String, title: String, onUpClick: () -> Unit) 
             contentDescription = "background_image",
             contentScale = ContentScale.Crop
         )
-        ArrowBackIcon(onUpClick)
         Box(modifier = Modifier
             .padding(CocktailsTheme.dimensions.medium3)
             .align(Alignment.BottomStart)
