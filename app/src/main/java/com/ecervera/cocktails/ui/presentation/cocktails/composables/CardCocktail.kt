@@ -10,11 +10,19 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
+import com.ecervera.cocktails.domain.Drink
 import com.ecervera.cocktails.ui.theme.CocktailsTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CardCocktail(onClick: (String) -> Unit, id: String) {
+fun CardCocktail(drink: Drink, onClick: (String) -> Unit) {
+    lateinit var sourceImage: String
+
+    if(drink.imageSource.contains("www.thecocktaildb.com")) {
+        sourceImage = drink.imageSource
+    } else sourceImage = drink.drinkThumb ?: ""
+
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -25,7 +33,7 @@ fun CardCocktail(onClick: (String) -> Unit, id: String) {
         content = {
             Box {
                 Image(
-                    painter = rememberAsyncImagePainter("https://www.thecocktaildb.com/images/media/drink/tquyyt1451299548.jpg"),
+                    painter = rememberAsyncImagePainter(sourceImage),
                     modifier = Modifier
                         .aspectRatio(18f / 9f)
                         .clip(shape = RoundedCornerShape(24.dp)),
@@ -38,16 +46,16 @@ fun CardCocktail(onClick: (String) -> Unit, id: String) {
             ) {
 
                 Text(
-                    "Chocolate Black Russian",
+                    drink.name,
                     color = CocktailsTheme.colors.title,
                     style = MaterialTheme.typography.labelLarge
                 )
-                Text("Ordinary Drink",
+                Text(drink.category,
                     color = CocktailsTheme.colors.text,
                     style = MaterialTheme.typography.labelSmall
                 )
             }
         },
-        onClick = { onClick(id) }
+        onClick = { onClick(drink.idDrink) }
     )
 }

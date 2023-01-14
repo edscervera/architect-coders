@@ -43,4 +43,12 @@ data class Drink(
     val tags: String?,
     val video: String?,
     val isFavorite: Boolean,
-)
+) {
+    val painter: String
+        get() = handlePainter(imageSource, drinkThumb)
+
+    fun handlePainter(imageSource: String, drinkThumb: String?): String {
+        return if (imageSource.contains("www.thecocktaildb.com")) imageSource
+        else drinkThumb ?: ""
+    }
+}

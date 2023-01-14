@@ -23,8 +23,8 @@ fun Navigation() {
             }
         }
 
-        composable(NavItem.Cocktail) { backStackEntry ->
-            CocktailView(id = backStackEntry.findArg(NavArg.Id)) {
+        composable(NavItem.Cocktail) {
+            CocktailView {
                 navController.popBackStack()
             }
         }
