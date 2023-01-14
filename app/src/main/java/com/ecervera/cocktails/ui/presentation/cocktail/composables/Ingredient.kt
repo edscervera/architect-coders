@@ -10,7 +10,7 @@ import com.ecervera.cocktails.ui.theme.CocktailsTheme
 @Composable
 fun Ingredient(ingredient: String, measure: String, modifier: Modifier) {
     Text(
-        text = "$measure oz - $ingredient",
+        text = "$measure - $ingredient",
         fontSize = 16.sp,
         color = CocktailsTheme.colors.text,
         modifier = modifier

@@ -7,8 +7,10 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.ecervera.cocktails.R
 import com.ecervera.cocktails.domain.Drink
 import com.ecervera.cocktails.ui.composables.ArrowBackIcon
 import com.ecervera.cocktails.ui.presentation.cocktail.composables.*
@@ -45,7 +47,8 @@ fun ContentCocktailView(drink: Drink, onUpClick: () -> Unit) {
 
             item {
                 Text(
-                    text = "Ingredients", fontSize = 24.sp,
+                    text = stringResource(R.string.ingredients),
+                    fontSize = 24.sp,
                     color = CocktailsTheme.colors.title,
                     modifier = Modifier.padding(horizontal = paddingMedium)
                 )

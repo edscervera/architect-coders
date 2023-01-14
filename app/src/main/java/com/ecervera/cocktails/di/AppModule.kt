@@ -1,9 +1,7 @@
 package com.ecervera.cocktails.di
 
 import android.app.Application
-import android.content.Context
 import androidx.room.Room
-import com.ecervera.cocktails.R
 import com.ecervera.cocktails.data.database.DrinkDatabase
 import com.ecervera.cocktails.data.server.RemoteService
 import com.squareup.moshi.Moshi
@@ -20,8 +18,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
-
-    const val BASE_URL = "9973533"
 
     @Provides
     @Singleton

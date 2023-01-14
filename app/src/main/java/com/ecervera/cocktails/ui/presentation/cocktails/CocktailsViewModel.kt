@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.ecervera.cocktails.data.toError
 import com.ecervera.cocktails.domain.Drink
 import com.ecervera.cocktails.domain.Error
-import com.ecervera.cocktails.usecases.GetPopularMoviesUseCase
+import com.ecervera.cocktails.usecases.GetLatestDrinksUseCase
 import com.ecervera.cocktails.usecases.RequestLatestDrinksUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,7 +19,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CocktailsViewModel @Inject constructor(
-    getPopularMoviesUseCase: GetPopularMoviesUseCase,
+    getLatestDrinksUseCase: GetLatestDrinksUseCase,
     private val requestLatestDrinksUseCase: RequestLatestDrinksUseCase
 ) : ViewModel() {
 
@@ -29,7 +29,7 @@ class CocktailsViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            getPopularMoviesUseCase()
+            getLatestDrinksUseCase()
                 .catch { cause -> _state.update { it.copy(error = cause.toError()) } }
                 .collect { drinks -> _state.update { UiState(drinks = drinks) } }
         }

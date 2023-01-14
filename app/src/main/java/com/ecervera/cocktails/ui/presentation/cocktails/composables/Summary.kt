@@ -11,6 +11,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.ecervera.cocktails.R
 import com.ecervera.cocktails.ui.theme.CocktailsTheme
 
 @Composable
@@ -24,10 +26,10 @@ fun Summary() {
         ),
         content = {
             Column(modifier = Modifier.padding(CocktailsTheme.dimensions.medium3)) {
-                Text("\uD83C\uDF79 Total Drinks: 635",
+                Text("\uD83C\uDF79 ${stringResource(R.string.total_drinks)}: 635",
                     style = MaterialTheme.typography.labelLarge)
                 Spacer(modifier = Modifier.padding(CocktailsTheme.dimensions.small4))
-                Text("\uD83C\uDF4B Total Ingredients: 489",
+                Text("\uD83C\uDF4B ${stringResource(R.string.total_ingredients)}: 489",
                     style = MaterialTheme.typography.labelLarge)
             }
         },

@@ -7,7 +7,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.sp
+import com.ecervera.cocktails.R
 
 @Composable
 fun CocktailHeader() {
@@ -17,7 +19,7 @@ fun CocktailHeader() {
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(
-            "DrinkUp",
+            text = stringResource(R.string.title),
             fontSize = 32.sp,
             lineHeight = 40.sp
         )
