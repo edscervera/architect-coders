@@ -13,7 +13,7 @@ class DrinkServerDataSource @Inject constructor(
 
     override suspend fun findLatestDrinks(): Either<Error, List<Drink>> = tryCall {
 
-        val drinks = remoteService.listLatestDrinks().body()?.drinks
+        val drinks = remoteService.listLatestDrinks().drinks
 
         if(drinks != null && drinks.isNotEmpty()) drinks.toDomainModel()
         else emptyList()
@@ -24,8 +24,8 @@ private fun List<RemoteDrink>.toDomainModel(): List<Drink> = map { it.toDomainMo
 
 private fun RemoteDrink.toDomainModel(): Drink = Drink(
     idDrink = idDrink,
-    alcoholic,
-    category,
+    alcoholic = alcoholic,
+    category = category,
     creativeCommonsConfirmed,
     name,
     drinkThumb,

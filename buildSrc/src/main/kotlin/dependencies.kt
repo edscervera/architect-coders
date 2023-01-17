@@ -12,7 +12,6 @@ object Libs {
             const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
             const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
             const val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$version"
-            const val playService = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$version"
         }
 
     }
@@ -65,6 +64,8 @@ object Libs {
 
         object Test {
             private const val version = "1.4.0"
+            const val runner = "androidx.test:runner:$version"
+            const val rules = "androidx.test:rules:$version"
 
 
             object Compose {
@@ -73,15 +74,14 @@ object Libs {
                 const val manifest = "androidx.compose.ui:ui-test-manifest:$compose"
             }
 
+            object Espresso{
+                private const val version="3.4.0"
+                const val contrib = "androidx.test.espresso:espresso-contrib:$version"
+            }
+
             object Ext {
                 private const val version = "1.1.4"
                 const val junit = "androidx.test.ext:junit:$version"
-            }
-
-            object Mock {
-                const val mockk = "io.mockk:mockk:1.13.3"
-                const val mockitoCore = "org.mockito:mockito-core:4.10.0"
-                const val mockitoKotlin = "org.mockito.kotlin:mockito-kotlin:4.1.0"
             }
 
             object UI {
@@ -142,7 +142,7 @@ object Libs {
     }
 
     object Mockito {
-        const val kotlin = "org.mockito.kotlin:mockito-kotlin:4.0.0"
+        const val kotlin = "org.mockito.kotlin:mockito-kotlin:4.1.0"
         const val inline = "org.mockito:mockito-inline:4.4.0"
     }
 
@@ -169,5 +169,5 @@ object Libs {
 
 
     const val timber = "com.jakewharton.timber:timber:5.0.1"
-    const val turbine = "app.cash.turbine:turbine:0.12.1"
+    const val turbine = "app.cash.turbine:turbine:0.7.0"
 }

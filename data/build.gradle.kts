@@ -21,4 +21,11 @@ dependencies {
 
     // PROJECT
     implementation(project(":domain"))
+
+
+    // TEST
+    testImplementation(project(":testShared"))
+    testImplementation(Libs.JUnit.junit)
+    testImplementation(Libs.Mockito.inline)
+    testImplementation(Libs.Mockito.kotlin)
 }

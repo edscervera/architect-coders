@@ -83,7 +83,6 @@ dependencies {
     // COROUTINES
     implementation(Libs.Kotlin.Coroutines.core)
     implementation(Libs.Kotlin.Coroutines.android)
-    implementation(Libs.Kotlin.Coroutines.playService)
 
     // DAGGER HILT
     implementation(Libs.Hilt.android)
@@ -123,6 +122,25 @@ dependencies {
     implementation(Libs.AndroidX.Room.runtime)
     implementation(Libs.AndroidX.Room.roomKtx)
     kapt(Libs.AndroidX.Room.compiler)
+
+    // TESTS
+    testImplementation(project(":testShared"))
+    testImplementation(project(":appTestShared"))
+    testImplementation(Libs.JUnit.junit)
+    testImplementation(Libs.Mockito.kotlin)
+    testImplementation(Libs.Mockito.inline)
+    testImplementation(Libs.Kotlin.Coroutines.test)
+    testImplementation(Libs.turbine)
+
+    androidTestImplementation(project(":appTestShared"))
+    androidTestImplementation(Libs.AndroidX.Test.Ext.junit)
+    androidTestImplementation(Libs.AndroidX.Test.Espresso.contrib)
+    androidTestImplementation(Libs.AndroidX.Test.runner)
+    androidTestImplementation(Libs.AndroidX.Test.rules)
+    androidTestImplementation(Libs.Hilt.test)
+    androidTestImplementation(Libs.Kotlin.Coroutines.test)
+    androidTestImplementation(Libs.OkHttp3.mockWebServer)
+    kaptAndroidTest(Libs.Hilt.compiler)
 
     // TIMBER
     implementation(Libs.timber)

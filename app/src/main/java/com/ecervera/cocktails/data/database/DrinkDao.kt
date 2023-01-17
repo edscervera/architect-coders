@@ -16,5 +16,5 @@ interface DrinkDao {
     suspend fun drinkCount(): Int
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertDrinks(movies: List<Drink>)
+    suspend fun insertDrinks(drinks: List<Drink>)
 }

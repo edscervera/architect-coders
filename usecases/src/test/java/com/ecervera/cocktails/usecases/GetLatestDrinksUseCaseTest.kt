@@ -12,13 +12,13 @@ class GetLatestDrinksUseCaseTest {
 
     @Test
     fun `Invoke calls get latest drinks use case`(): Unit = runBlocking {
-        val movies = flowOf(listOf(sampleDrink.copy(idDrink = "1")))
+        val drinks = flowOf(listOf(sampleDrink.copy(idDrink = "1")))
         val getLatestDrinksUseCase = GetLatestDrinksUseCase(mock {
-            on { latestDrinks } doReturn movies
+            on { latestDrinks } doReturn drinks
         })
 
         val result = getLatestDrinksUseCase()
 
-        assertEquals(movies, result)
+        assertEquals(drinks, result)
     }
 }
