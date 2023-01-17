@@ -70,8 +70,8 @@ object Libs {
 
             object Compose {
                 const val junit = "androidx.compose.ui:ui-test-junit4:$compose"
-                const val tooling = "androidx.compose.ui:ui-tooling:$compose"
                 const val manifest = "androidx.compose.ui:ui-test-manifest:$compose"
+                const val tooling = "androidx.compose.ui:ui-tooling:$compose"
             }
 
             object Espresso{
@@ -82,14 +82,6 @@ object Libs {
             object Ext {
                 private const val version = "1.1.4"
                 const val junit = "androidx.test.ext:junit:$version"
-            }
-
-            object UI {
-                const val espresso = "androidx.test.espresso:espresso-core:3.5.0"
-                const val junit = "androidx.compose.ui:ui-test-junit4:$compose"
-                const val manifest = "androidx.compose.ui:ui-test-manifest:$compose"
-                const val tooling = "androidx.compose.ui:ui-tooling:$compose"
-
             }
         }
 

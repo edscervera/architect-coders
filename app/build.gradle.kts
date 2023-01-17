@@ -17,7 +17,7 @@ android {
         versionCode = 1
         versionName = "1.0.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.ecervera.cocktails.di.HiltTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -49,6 +49,10 @@ android {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
+    }
+
+    testOptions {
+        animationsDisabled = true
     }
 }
 
@@ -134,6 +138,7 @@ dependencies {
 
     androidTestImplementation(project(":appTestShared"))
     androidTestImplementation(Libs.AndroidX.Test.Ext.junit)
+    androidTestImplementation(Libs.AndroidX.Test.Compose.junit)
     androidTestImplementation(Libs.AndroidX.Test.Espresso.contrib)
     androidTestImplementation(Libs.AndroidX.Test.runner)
     androidTestImplementation(Libs.AndroidX.Test.rules)
@@ -141,6 +146,7 @@ dependencies {
     androidTestImplementation(Libs.Kotlin.Coroutines.test)
     androidTestImplementation(Libs.OkHttp3.mockWebServer)
     kaptAndroidTest(Libs.Hilt.compiler)
+    debugImplementation(Libs.AndroidX.Test.Compose.manifest)
 
     // TIMBER
     implementation(Libs.timber)
